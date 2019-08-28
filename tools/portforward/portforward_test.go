@@ -377,6 +377,9 @@ func TestGetPortsReturnsDynamicallyAssignedLocalPort(t *testing.T) {
 
 	ports, err := pf.GetPorts()
 
+	if err != nil {
+		t.Fatalf("error while getting ports: %s", err)
+	}
 	if len(ports) != 1 {
 		t.Fatalf("expected 1 port, got %d", len(ports))
 	}
